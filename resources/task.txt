@@ -1,0 +1,17 @@
+The user sees all the new movies on the main page
+
+The user scrolls down the main page to see the movies based on release date
+
+The user can save a “watch list” of the movies they want to watch
+
+The user can click on any movie and continue navigating to the movie page (details page)
+
+On the page of a given movie, the user sees the detailed data of the movie: movie description, rating, actors, reviews.
+
+---
+
+The user can create their own account
+
+The user can create their own watch list
+
+The user can create a review for a movie
