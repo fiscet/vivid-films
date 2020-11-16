@@ -1,0 +1,25 @@
+#mainContainer {
+    height: 100%;
+  main {
+    height: 100%;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+
+    &.isXSmall {
+      width: 100%;
+    }
+    &.isSmall {
+      width: 640px;
+    }
+    &.isTablet {
+      width: 840px;
+    }
+    &.isWeb {
+      width: 1024px;
+    }
+  }
+}
