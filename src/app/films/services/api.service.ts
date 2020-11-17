@@ -13,7 +13,15 @@ export class ApiService {
 
   private API_KEY: string
   private API_ENDPOINT: string
-
+  
+  /**
+   * @description Service to fetch data from the server
+   * 
+   * @author Christian Zanchetta
+   * 
+   * @param  {GlobalsService} constants - Get the endpoint and the key
+   * @param  {HttpClient} http
+   */
   constructor(private constants: GlobalsService, private http: HttpClient) {
     this.API_KEY = constants.API_KEY
     this.API_ENDPOINT = constants.API_ENDPOINT
@@ -22,7 +30,7 @@ export class ApiService {
   getList({page = 1}): Observable<FilmList> {
     return this.http.get<FilmList>(`${this.API_ENDPOINT}/movie/upcoming?api_key=${this.API_KEY}&language=en-US&page=${page}`).pipe(
       catchError(err => {
-        console.log('API Error ->', err);
+        console.log('API getList Error ->', err);        
         return throwError(err);
       })
     );

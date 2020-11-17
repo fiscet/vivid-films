@@ -2,6 +2,8 @@
 
 ## Specifications and personal considerations
 
+Starting date: 2020-11-16
+
 ### The user sees all the new movies on the main page
 So I keep it simple, I show the list on the root route.
 If we'll introduce the auth system, I will redirect the user to the login page if it's authenticated yet.
@@ -11,6 +13,12 @@ For semplicity, I will create components (for the fil list and for the film deta
 ### The user scrolls down the main page to see the movies based on release date
 For a better user experience let's implenent an infinite scroll instead of a pagination.
 I'll adopt an exixting library, maybe from ngx.
+
+[2020-11-17] After having seen the "server" response, I've noticed that:
+- We cannot control the page size
+- The release dates are not ordered
+So I will opt for a pagination system
+
 
 ### The user can save a “watch list” of the movies they want to watch
 It's like a shopping cart, I'll try to build it as generic as I can, so to reuse it in the future.

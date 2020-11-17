@@ -7,10 +7,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'vivid-films';
+  title = 'Vivid Films';
 
   mainClass = 'isXSmall';
-
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 

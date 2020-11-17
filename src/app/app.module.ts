@@ -11,9 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 import { GlobalsService } from './common/services/globals.service';
 import { ApiService as FilmApiService } from './films/services/api.service';
+import { WatchListService } from './films/services/watch-list.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,10 @@ import { ApiService as FilmApiService } from './films/services/api.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
-  providers: [GlobalsService, FilmApiService],
+  providers: [GlobalsService, FilmApiService, WatchListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

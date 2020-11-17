@@ -1,28 +1,51 @@
 table {
-	width: 100%;
+  width: 100%;
+}
+
+/* Not the best way .. */
+.mat-header-row, .cdk-header-row {
+	background-color: #CE93D8;
+}
+
+tr:nth-of-type(even) {
+  background-color: #f3e5f5;
+}
+
+.hSpacing {
+  padding: 0 16px;
 }
 
 .filmThumb {
-	height: 100px;
+  height: 100px;
 
-	img {
-		height: 100%;
-		margin: 8px 0 4px 0;
-	}
+  img {
+    height: 100%;
+    margin: 8px 0 4px 0;
+  }
 }
 
 .filmTitle {
-	padding: 0 16px;
-	vertical-align: top;
+  vertical-align: top;
 }
 
-.filmReleaseDateHeader {
-	white-space: nowrap;
-	text-align: right;
+.filmReleaseDateHeader,
+.commandsHeader {
+  white-space: nowrap;
+  text-align: right;
 }
+
 .filmReleaseDate {
-	color: #666;
-	text-align: right;
-	white-space: nowrap;
-	vertical-align: top;
+  color: #666;
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.commandsContainer {
+  display: flex;
+  flex-direction: row;
+
+  div {
+    padding-right: 8px;
+  }
 }

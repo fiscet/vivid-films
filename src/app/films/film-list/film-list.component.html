@@ -1,17 +1,45 @@
-<table mat-table [dataSource]="films" class="mat-elevation-z1">
-	<ng-container matColumnDef="backdrop_path">
-		<th mat-header-cell *matHeaderCellDef> Image </th>
-		<td mat-cell *matCellDef="let film" class="filmThumb">
-			<img [src]="getThumb(film.backdrop_path)" alt={{film.original_title}} /> </td>
-	</ng-container>
-	<ng-container matColumnDef="original_title">
-		<th mat-header-cell *matHeaderCellDef class="w-100"> Title (original) </th>
-		<td mat-cell *matCellDef="let film" class="filmTitle"> <h2>{{film.original_title}}</h2> </td>
-	</ng-container>
-	<ng-container matColumnDef="release_date">
-		<th mat-header-cell *matHeaderCellDef class="filmReleaseDateHeader"> Release Date </th>
-		<td mat-cell *matCellDef="let film" class="filmReleaseDate"> <small>{{film.release_date}}</small> </td>
-	</ng-container>
-	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div id="flimListWrapper">
+	<h1>Upcoming Films</h1>
+	<p>The list is not yet responsive, so watch it from your laptop</p>
+	<table mat-table [dataSource]="films" class="mat-elevation-z1" *ngIf="films && films.length > 0; else noList">
+		<ng-container matColumnDef="backdrop_path">
+			<th mat-header-cell *matHeaderCellDef> Image </th>
+			<td mat-cell *matCellDef="let film" class="filmThumb">
+				<img [src]="getThumb(film.backdrop_path)" alt={{film.original_title}} />
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="original_title">
+			<th mat-header-cell *matHeaderCellDef class="w-100 hSpacing"> Title (original) </th>
+			<td mat-cell *matCellDef="let film" class="filmTitle hSpacing">
+				<h2>{{film.original_title}}</h2>
+				<div class="commandsContainer">
+					<div class="colLeft">
+						<button mat-flat-button color="primary" *ngIf="!(filmInWatchList(film) | async) as exists; else removeBtn"
+							(click)="handleAddToWatchList(film)">
+							Watch later
+						</button>
+						<ng-template #removeBtn>
+							<div>
+								<button mat-flat-button color="warn" (click)="handleRemFromWatchList(film.id)">
+									Remove from "Watch later"
+								</button>
+							</div>
+						</ng-template>
+					</div>
+					<div class="colRight">
+						<button mat-flat-button color="accent" (click)="handleOpenDetails(film.id)">
+							Read more ...
+						</button>
+					</div>
+				</div>
+			</td>
+		</ng-container>
+		<ng-container matColumnDef="release_date">
+			<th mat-header-cell *matHeaderCellDef class="filmReleaseDateHeader hSpacing"> Release Date </th>
+			<td mat-cell *matCellDef="let film" class="filmReleaseDate hSpacing"> <small>{{film.release_date}}</small> </td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table>
+	<ng-template #noList> No films to show</ng-template>
+</div>
