@@ -1,0 +1,28 @@
+table {
+	width: 100%;
+}
+
+.filmThumb {
+	height: 100px;
+
+	img {
+		height: 100%;
+		margin: 8px 0 4px 0;
+	}
+}
+
+.filmTitle {
+	padding: 0 16px;
+	vertical-align: top;
+}
+
+.filmReleaseDateHeader {
+	white-space: nowrap;
+	text-align: right;
+}
+.filmReleaseDate {
+	color: #666;
+	text-align: right;
+	white-space: nowrap;
+	vertical-align: top;
+}

@@ -1,1 +1,17 @@
-<p>film-list works!</p>
+<table mat-table [dataSource]="films" class="mat-elevation-z1">
+	<ng-container matColumnDef="backdrop_path">
+		<th mat-header-cell *matHeaderCellDef> Image </th>
+		<td mat-cell *matCellDef="let film" class="filmThumb">
+			<img [src]="getThumb(film.backdrop_path)" alt={{film.original_title}} /> </td>
+	</ng-container>
+	<ng-container matColumnDef="original_title">
+		<th mat-header-cell *matHeaderCellDef class="w-100"> Title (original) </th>
+		<td mat-cell *matCellDef="let film" class="filmTitle"> <h2>{{film.original_title}}</h2> </td>
+	</ng-container>
+	<ng-container matColumnDef="release_date">
+		<th mat-header-cell *matHeaderCellDef class="filmReleaseDateHeader"> Release Date </th>
+		<td mat-cell *matCellDef="let film" class="filmReleaseDate"> <small>{{film.release_date}}</small> </td>
+	</ng-container>
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
