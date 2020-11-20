@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer, of } from "rxjs";
+import { Observable, Observer } from "rxjs";
 
 import { FilmBrief } from '../models/film-brief.model';
 
@@ -33,7 +33,8 @@ export class WatchListService {
 
   addFilm(_film: FilmBrief) {
     this.films.push(_film)
-    this.dispatch(this.films);
+
+    this.dispatch(this.films)
   }
   removeFilm(id: number) {
     this.films = this.films.filter((_item) => _item.id !== id)
@@ -48,7 +49,7 @@ export class WatchListService {
     return this.films
   }
 
-  private dispatch(films: FilmBrief[]): void {
+  private dispatch(films: FilmBrief[]) {
     this.subscribers
       .forEach((sub) => {
         try {

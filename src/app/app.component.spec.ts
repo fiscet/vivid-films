@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'vivid-films'`, () => {
+  it(`should have as title 'Vivid Films'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('vivid-films');
+    expect(app.title).toEqual('Vivid Films');
   });
 
-  it('should render title', () => {
+  it('should render the main div container', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('vivid-films app is running!');
+    expect(compiled.querySelector('#mainContainer')).toBeTruthy();
   });
 });

@@ -6,7 +6,8 @@ export interface FilmList {
 	page: number,
 	dates: {
 		maximum: string,
-		minimu: string,
+		minimum: string,
 	},
+	total_results: number,
 	total_pages: number
 }
